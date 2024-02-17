@@ -4,7 +4,16 @@ from enum import Enum
 from collections import namedtuple
 
 BLOCK_SIZE = 20
+SPEED = 40
 pygame.init()
+font = pygame.font.SysFont('Arial', 25)
+
+# RGB colours
+WHITE = (255, 255, 255)
+RED = (200, 0, 0)
+BLUE1 = (0, 0, 255)
+BLUE2 = (0, 100, 255)
+BLACK = (0, 0, 0)
 
 
 class Direction(Enum):
@@ -14,7 +23,7 @@ class Direction(Enum):
     DOWN = 4
 
 
-Point = namedtuple('Point', 'x', 'y')
+Point = namedtuple('Point', 'x, y')
 
 
 class SnakeGame:
@@ -50,7 +59,30 @@ class SnakeGame:
 
 
     def play_setup(self):
-        pass
+        # 1, collect user input
+        # 2, move
+        # 3, check if game is over
+        # 4, place new food or just move
+        
+        # 5, update game up and clock
+        self._update_ui()
+        self.clock.tick(SPEED)
+        # 6, return game over and score
+        game_over = False
+        return game_over, self.score
+    
+    def _update_ui(self):
+        self.display.fill(BLACK)
+
+        for pt in self.snake:
+            pygame.draw.rect(self.display, BLUE1, pygame.Rect(pt.x, pt.y, BLOCK_SIZE, BLOCK_SIZE))
+            pygame.draw.rect(self.display, BLUE2, pygame.Rect(pt.x+4, pt.y+4, 12, 12))
+
+        pygame.draw.rect(self.display, RED, pygame.Rect(self.food.x, self.food.y, BLOCK_SIZE, BLOCK_SIZE))
+
+        text = font.render("Score: " + str(self.score), True, WHITE)
+        self.display.blit(text, [0, 0])
+        pygame.display.flip()
 
 
 
@@ -59,9 +91,13 @@ if __name__ == '__main__':
 
     # Game loop
     while True:
-        game.play_setup()
+        game_over, score = game.play_setup()
 
-        # Break if game over
+        if game_over == True:
+            break
+
+    print('Final score: ', score)
+        
 
 
     pygame.quit()
