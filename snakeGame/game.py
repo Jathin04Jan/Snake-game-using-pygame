@@ -4,7 +4,7 @@ from enum import Enum
 from collections import namedtuple
 
 BLOCK_SIZE = 20
-SPEED = 10
+SPEED = 20
 pygame.init()
 font = pygame.font.SysFont('Arial', 25)
 
