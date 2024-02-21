@@ -22,14 +22,6 @@ This is a simple implementation of the classic Snake game using Python and the P
 - **Game Over**: The game ends if the snake collides with the walls or itself.
 - **Game Loop**: The game loop keeps the game running until the player loses or quits.
 
-## Screenshots
-
-![Gameplay Screenshot](screenshots/gameplay.png)
-
-## Known Issues
-
-- Occasionally, the food might spawn in a location that is inaccessible to the snake, leading to a game over.
-
 ## Future Enhancements
 
 - Implement a high score system to keep track of the top scores.
