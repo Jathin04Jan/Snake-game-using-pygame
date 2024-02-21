@@ -10,7 +10,7 @@ This is a simple implementation of the classic Snake game using Python and the P
 
 ## Getting Started
 
-1. **Clone the repository**: `git clone https://github.com/yourusername/snake-game.git`
+1. **Clone the repository**: `git clone https://github.com/Jathin04Jan/Snake-game-using-pygame.git`
 2. **Navigate to the project directory**: `cd snake-game`
 3. **Install Pygame**: `pip3 install pygame`
 4. **Run the game**: `python game.py`
